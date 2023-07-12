@@ -34,6 +34,13 @@ class ViewController: UIViewController {
 
         
         askQuestions(action: nil)
+        
+        let scoreButton = UIBarButtonItem(title: "Score",
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(showScore))
+        navigationItem.rightBarButtonItem = scoreButton
+        
 //        countries.append("estonia")
 //        countries.append("france")
 //        countries.append("germany")
@@ -80,6 +87,12 @@ class ViewController: UIViewController {
         questionsAsked = 0
         score = 0
         askQuestions(action: nil)
+    }
+    
+    @objc func showScore() {  // extra assignment from project 3 to add right bar button for score  in navigation bar
+        let scoreAlert = UIAlertController(title: "Score", message: "Your current score is \(score)", preferredStyle: .alert)
+        scoreAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(scoreAlert, animated: true)
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
